@@ -1,0 +1,13 @@
+---
+- name: Change pass
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Reset pass
+    user:
+     name: "{{ item }}"
+     password: "{{ '!banker16?' | password_hash('sha512') }}"
+    loop:
+       - user_1
+       - sys_1
+       - adamJ 
